@@ -1,0 +1,8 @@
+#include <fstream> 
+ifstream inFile("infile.txt");
+streambuf *strmin_buf = cin.rdbuf();  
+cin.rdbuf(inFile.rdbuf());
+
+inFile.close();  
+cin.rdbuf(strmin_buf); 
+system("pause");
