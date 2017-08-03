@@ -63,3 +63,26 @@ int lengthOfLongestSubstring(string s) {
 	}
 	return max;
 }
+
+
+
+//#2
+int lengthOfLongestSubstring(string s) {
+    set<int> k;
+    int start = 0, end = 0, ml = 0;
+    while (start < s.length() && end < s.length())
+    {
+        if (k.find(s[end]) == k.end())
+        {
+            k.insert(s[end]);
+            ml = max(end-start + 1, ml);
+            end++;
+        }
+        else
+        {
+            k.erase(s[start]);
+            start++;
+        }
+    }
+    return ml;
+}
